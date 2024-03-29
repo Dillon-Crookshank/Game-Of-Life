@@ -3,15 +3,44 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Game Project Title Goes Here</title>
+    <title>Game of Life</title>
   
     <script type="text/javascript" src="./assetmanager.js"></script>
     <script type="text/javascript" src="./timer.js"></script>
     <script type="text/javascript" src="./gameengine.js"></script>
+    <script type="text/javascript" src="./automata.js"></script>
     <script type="text/javascript" src="./util.js"></script>
     <script type="text/javascript" src="./main.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <canvas id="gameWorld" width="1024" height="768" style="background: white; border: 1px solid black" tabindex="0" autofocus></canvas>
+    <div class="flex-row">
+        <canvas id="gameWorld" width="1024" height="675" style="background: white; border: 1px solid black" tabindex="0" autofocus></canvas>
+        
+        <div class="flex-col">
+            <label id="steps">Steps: 0</label>
+            <div class="flex-row">
+                <label for="speed">Simulation Speed</label>
+                <input type="range" id="speed" min="1" max="30" value="20" step="1">
+            </div>
+
+            <input type="button" id="resetButton" value="Reset Simulation" onclick="automata.loadRandomGrid()">
+            <input type="button" id="demoButton" value="Ocilators" onclick="automata.loadOcilatorGrid()">
+            <input type="button" id="acornButton" value="Acorn" onclick="automata.loadAcornGrid()">
+            
+            <div class="flex-row">
+                <input type="checkbox" id="rainbowBox" name="rainbowBox">
+                <label for="rainbowBox">Rainbow Mode</label>
+            </div>
+
+            <div class="flex-row">
+                <input type="checkbox" id="fadeBox" name="fadeBox">
+                <label for="fadeBox">Fade Mode</label>
+            </div>
+        </div>
+        
+    </div>
+    
 </body>
 </html>
