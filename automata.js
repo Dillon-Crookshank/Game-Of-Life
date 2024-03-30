@@ -63,9 +63,11 @@ class Automata {
         this.stepCount = 0;
         this.grid = this.createEmptyGrid();
 
-        this.addAchimsp16(8, 8);
-        this.addAforall(8, 25);
-        this.addAverage(8, 40);
+        this.addAchimsp16(32, 8);
+        this.addAforall(32, 30);
+        this.addAverage(32, 55);
+        this.addAirforce(32, 82);
+        this.addAchimsp4(32, 105);
     }
 
     //Adds a blinker (row/column of 3 cells) to the current grid
@@ -224,6 +226,109 @@ class Automata {
         this.grid[row][col + 5] = 1;
         this.grid[row][col + 7] = 1;
         this.grid[row + 1][col + 6] = 1;
+    }
+
+    addAirforce(row, col) {
+        //Inner arrows
+        this.grid[row - 1][col - 1] = 1;
+        this.grid[row - 1][col] = 1;
+        this.grid[row][col - 1] = 1;
+        this.grid[row][col + 2] = 1;
+        this.grid[row + 1][col + 1] = 1;
+        this.grid[row + 1][col + 2] = 1;
+
+        this.grid[row - 3][col - 1] = 1;
+        this.grid[row - 3][col] = 1;
+        this.grid[row - 3][col + 1] = 1;
+        this.grid[row - 3][col + 2] = 1;
+        this.grid[row - 3][col + 3] = 1;
+        this.grid[row - 2][col + 4] = 1;
+        this.grid[row - 1][col + 4] = 1;
+        this.grid[row][col + 4] = 1;
+        this.grid[row + 1][col + 4] = 1;
+        this.grid[row + 2][col + 3] = 1;
+        this.grid[row + 3][col + 2] = 1;
+        this.grid[row + 3][col + 1] = 1;
+        this.grid[row + 3][col] = 1;
+        this.grid[row + 3][col - 1] = 1;
+        this.grid[row + 3][col - 2] = 1;
+        this.grid[row + 2][col - 3] = 1;
+        this.grid[row + 1][col - 3] = 1;
+        this.grid[row][col - 3] = 1;
+        this.grid[row - 1][col - 3] = 1;
+        this.grid[row - 2][col - 2] = 1;
+
+        //Top point
+        this.grid[row - 5][col + 1] = 1;
+        this.grid[row - 6][col] = 1;
+        this.grid[row - 6][col + 2] = 1;
+        this.grid[row - 7][col + 1] = 1;
+
+        //Right point
+        this.grid[row - 1][col + 6] = 1;
+        this.grid[row - 1][col + 7] = 1;
+        this.grid[row - 2][col + 6] = 1;
+        this.grid[row - 2][col + 7] = 1;
+
+        //Bottom point
+        this.grid[row + 5][col] = 1;
+        this.grid[row + 6][col - 1] = 1;
+        this.grid[row + 6][col + 1] = 1;
+        this.grid[row + 7][col] = 1;
+
+        //Left point
+        this.grid[row + 1][col - 5] = 1;
+        this.grid[row + 1][col - 6] = 1;
+        this.grid[row + 2][col - 5] = 1;
+        this.grid[row + 2][col - 6] = 1;
+    }
+
+    addAchimsp4(row, col) {
+        //Right side
+        this.grid[row][col + 1] = 1;
+        this.grid[row][col + 3] = 1;
+        this.grid[row - 1][col + 4] = 1;
+        this.grid[row - 1][col + 5] = 1;
+        this.grid[row - 2][col + 4] = 1;
+        this.grid[row - 3][col + 4] = 1;
+        this.grid[row - 4][col + 3] = 1;
+        this.grid[row - 4][col + 2] = 1;
+        this.grid[row - 3][col + 1] = 1;
+        this.grid[row - 2][col + 1] = 1;
+        this.grid[row - 2][col + 2] = 1;
+
+        this.grid[row + 1][col + 4] = 1;
+        this.grid[row + 1][col + 5] = 1;
+        this.grid[row + 2][col + 4] = 1;
+        this.grid[row + 3][col + 4] = 1;
+        this.grid[row + 4][col + 3] = 1;
+        this.grid[row + 4][col + 2] = 1;
+        this.grid[row + 3][col + 1] = 1;
+        this.grid[row + 2][col + 1] = 1;
+        this.grid[row + 2][col + 2] = 1;
+
+        //Left side
+        this.grid[row][col - 1] = 1;
+        this.grid[row][col - 3] = 1;
+        this.grid[row - 1][col - 4] = 1;
+        this.grid[row - 1][col - 5] = 1;
+        this.grid[row - 2][col - 4] = 1;
+        this.grid[row - 3][col - 4] = 1;
+        this.grid[row - 4][col - 3] = 1;
+        this.grid[row - 4][col - 2] = 1;
+        this.grid[row - 3][col - 1] = 1;
+        this.grid[row - 2][col - 1] = 1;
+        this.grid[row - 2][col - 2] = 1;
+
+        this.grid[row + 1][col - 4] = 1;
+        this.grid[row + 1][col - 5] = 1;
+        this.grid[row + 2][col - 4] = 1;
+        this.grid[row + 3][col - 4] = 1;
+        this.grid[row + 4][col - 3] = 1;
+        this.grid[row + 4][col - 2] = 1;
+        this.grid[row + 3][col - 1] = 1;
+        this.grid[row + 2][col - 1] = 1;
+        this.grid[row + 2][col - 2] = 1;
     }
 
     countNeighbors(row, col) {

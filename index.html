@@ -13,34 +13,41 @@
     <script type="text/javascript" src="./main.js"></script>
 
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap">
 </head>
 <body>
-    <div class="flex-row">
+    <div class="flex-row" id="mainDiv">
         <canvas id="gameWorld" width="1024" height="675" style="background: white; border: 1px solid black" tabindex="0" autofocus></canvas>
         
-        <div class="flex-col">
-            <label id="steps">Steps: 0</label>
-            <div class="flex-row">
-                <label for="speed">Simulation Speed</label>
-                <input type="range" id="speed" min="1" max="30" value="20" step="1">
-            </div>
-
-            <input type="button" id="resetButton" value="Reset Simulation" onclick="automata.loadRandomGrid()">
-            <input type="button" id="demoButton" value="Ocilators" onclick="automata.loadOcilatorGrid()">
-            <input type="button" id="acornButton" value="Acorn" onclick="automata.loadAcornGrid()">
-            
-            <div class="flex-row">
-                <input type="checkbox" id="rainbowBox" name="rainbowBox">
-                <label for="rainbowBox">Rainbow Mode</label>
-            </div>
-
-            <div class="flex-row">
-                <input type="checkbox" id="fadeBox" name="fadeBox">
-                <label for="fadeBox">Fade Mode</label>
+        <div id="sidePanel" class="flex-col">
+            <h1 id="title">Game of Life</h1>
+            <div class="flex-col" id="options">
+                <label id="steps">Steps: 0</label>
+                <div class="flex-row option">
+                    <label for="speed">Simulation Speed</label>
+                    <input type="range" id="speed" min="1" max="30" value="20" step="1">
+                </div>
+    
+                <input class="option" type="button" id="randomButton" value="Random Cells" onclick="automata.loadRandomGrid()">
+                <input class="option" type="button" id="ocilatorButton" value="Ocilators" onclick="automata.loadOcilatorGrid()">
+                <input class="option" type="button" id="acornButton" value="Acorn" onclick="automata.loadAcornGrid()">
+                
+                <div class="flex-row option">
+                    <input type="checkbox" id="rainbowBox" name="rainbowBox">
+                    <label for="rainbowBox">Rainbow Mode</label>
+                </div>
+    
+                <div class="flex-row option">
+                    <input type="checkbox" id="fadeBox" name="fadeBox">
+                    <label for="fadeBox">Fade Mode</label>
+                </div>
             </div>
         </div>
+
+        
         
     </div>
+    
     
 </body>
 </html>

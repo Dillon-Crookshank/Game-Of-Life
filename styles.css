@@ -2,7 +2,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+}
+
+.option {
+    margin: 3px;
+}
+
+body {
+    background-color: aqua;
+    font-family: 'Roboto';
+}
+
+#options {
+    border-style: solid;
+    border-color: black;
+    border-radius: 3px;
+    border-width: 1px;
+    background-color: antiquewhite;
+    margin-left: 5px;
 }
 
 .flex-row {
